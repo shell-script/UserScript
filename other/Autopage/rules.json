@@ -1438,6 +1438,18 @@
 			"bF": "return fun.src_bF(pageE,[0,'img[data-url]','data-url'])"
 		}
 	},
+	"全景酷逊素材": {
+		"host": ["www.360kuxun.com","png.360kuxun.com"],
+		"url": "return fun.isPager()",
+		"pager": {
+			"nextL": "//a[@class='next page-numbers'] | //div[@class='pagebox']/a[text()='下一页 »']",
+			"pageE": ".card-columns",
+			"replaceE": ".pagination,.pagebox"
+		},
+		"function": {
+			"bF": "return fun.src_bF(pageE)"
+		}
+	},
 	"vcg.com": {
 		"host": "www.vcg.com",
 		"url": "fun.isUrlC(); return fun.indexOF(/^\\/creative-(image|illustration)\\//)",
@@ -2223,6 +2235,19 @@
 			"bF": "return fun.src_bF(pageE)"
 		}
 	},
+	"网飞猫": {
+		"host": ["www.ncat1.app","/^www\\.nca(t)?\\d+\\.com$/"],
+		"url": "return fun.isPager()",
+		"blank": 3,
+		"pager": {
+			"nextL": ".page-item-next",
+			"pageE": ".module-item",
+			"replaceE": ".pagenation-box"
+		},
+		"function": {
+			"bF": "pageE.forEach((a)=>{let b=fun.getCSS('img[data-original]:not(#noneCoverImg)',a); b.src=window.RDUL[0]+b.dataset.original});return pageE;"
+		}
+	},
 	"ZzzFun 动漫": {
 		"host": "www.zzzfun.com",
 		"url": "/^\\/vod_(type|show|search)/",
@@ -2449,6 +2474,19 @@
 			"type": 2,
 			"nextL": ".col-md-12>a,#loadmore>a",
 			"interval": 1500
+		}
+	},
+	"Kimivod": {
+		"host": "kimivod.com",
+		"url": "return fun.isPager()",
+		"blank": 3,
+		"pager": {
+			"nextL": ".pagination__next",
+			"pageE": ".container_list>.post",
+			"replaceE": ".pagination"
+		},
+		"function": {
+			"bF": "return fun.src_bF(pageE)"
 		}
 	},
 	"VCB-Studio": {
